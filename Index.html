@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NBA 10/21 星期三對戰表</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;--chip:#e6ebef;
+--P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--chip:#243240;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b}}
+:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--chip:#243240;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
+.sub{color:var(--mute);margin:0 0 18px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:22px;font-size:.9rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:16px}
+.game{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.head{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:700;font-size:1.1rem}
+.head small{color:var(--mute);font-weight:500}
+.teams{display:grid;grid-template-columns:1fr 1fr}
+.team{padding:12px 14px}
+.team+.team{border-left:1px solid var(--line)}
+.tn{font-weight:700;margin-bottom:2px}
+.tn small{color:var(--mute);font-weight:500;margin-left:4px}
+.lbl{font-size:.8rem;color:var(--mute);margin:10px 0 4px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:.92rem}
+.b{flex:none;min-width:24px;text-align:center;border-radius:4px;padding:0 6px;font-size:.78rem;font-weight:700;color:#fff}
+.b.P{background:var(--P)}.b.Q{background:var(--Q);color:var(--Qink)}.b.D{background:var(--D)}.b.O{background:var(--O)}
+.none{color:var(--mute);font-size:.9rem}
+.sub-list{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--chip);border-radius:999px;padding:1px 10px;font-size:.88rem}
+@media (max-width:520px){.teams{grid-template-columns:1fr}.team+.team{border-left:0;border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<main>
+<h1>NBA 星期三對戰表</h1>
+<p class="sub">2026 年 10 月 21 日，共 11 場</p>
+<div class="legend">
+<span><i class="b P">P</i>Probable 很可能出賽</span>
+<span><i class="b Q">Q</i>Questionable 出賽成疑</span>
+<span><i class="b D">D</i>Doubtful 不太可能出賽</span>
+<span><i class="b O">O</i>Out 確定缺陣</span>
+</div>
+<div class="grid" id="grid"></div>
+</main>
+<script>
+var T={
+ATL:["老鷹","Luguentz Dort;Aaron Wiggins"],
+ORL:["魔術","Karlo Matkovic"],
+CHA:["黃蜂","Royce O’Neale;Ryan Kalkbrenner;Kon Knueppel O;Coby White O"],
+BKN:["籃網","Moritz Wagner;Keon Ellis"],
+CHI:["公牛","Nic Claxton O;Zach Collins P;Isaac Okoro P;Leonard Miller P;Jordan Hawkins D"],
+TOR:["暴龍","Jamal Shead"],
+DAL:["獨行俠","Max Christie;Dereck Lively II O;Santi Aldama O;Caleb Martin O"],
+HOU:["火箭","Marcus Smart;Steven Adams Q"],
+GSW:["勇士","Stephen Curry P;Charles Bassey Q;Brandin Podziemski O;Jimmy Butler III O;Kristaps Porzingis O;Moses Moody O;De’Anthony Melton;Gary Payton II"],
+LAL:["湖人","Collin Sexton Q;Jake LaRavia"],
+IND:["溜馬","Aaron Nesmith O;Jarace Walker;Obi Toppin;Jay Huff"],
+NOP:["鵜鶘","Bennedict Mathurin"],
+SAC:["國王","Maxime Raynaud O;Dylan Cardwell O;Ben Simmons O;Malik Monk Q;De’Andre Hunter;Jonathan Mogbo"],
+LAC:["快艇","Bradley Beal O;Max Strus O;Brandon Ingram O;Y. Konan Niederhäuser O;Brook Lopez;Kris Dunn;Derrick Jones Jr.;Kobe Sanders"],
+UTA:["爵士","Jusuf Nurkic O;Brice Sensabaugh;Jaxson Hayes"],
+MEM:["灰熊","Isaiah Stewart D;Jaylen Wells;Scotty Pippen Jr.;Taylor Hendricks"],
+MIN:["灰狼","Terrence Shannon Jr."],
+MIA:["熱火","Klay Thompson;Nikola Jovic;Dru Smith"],
+MIL:["公鹿","Kyle Kuzma;Ousmane Dieng"],
+WAS:["巫師","AJ Dybantsa O;Bilal Coulibaly;Tre Johnson"],
+PHX:["太陽","Mark Williams O;Luke Kennard Q;Ryan Dunn"],
+POR:["拓荒者","Deni Avdija Q;Micah Potter Q;Scoot Henderson;Sidy Cissoko"]
+};
+var G=[["ATL","ORL"],["CHA","BKN"],["CHI","TOR"],["DAL","HOU"],["GSW","LAL"],["IND","NOP"],["SAC","LAC"],["UTA","MEM"],["MIN","MIA"],["MIL","WAS"],["PHX","POR"]];
+function team(c){
+  var t=T[c],out=[],sub=[];
+  t[1].split(";").forEach(function(s){
+    var m=s.match(/^(.*\S)\s([PQDO])$/);
+    if(m)out.push([m[1],m[2]]);else sub.push(s);
+  });
+  var h='<div class="team"><div class="tn">'+t[0]+'<small>'+c+'</small></div>';
+  h+='<div class="lbl">出場疑慮</div>';
+  h+=out.length?out.map(function(p){return '<div class="row"><span>'+p[0]+'</span><span class="b '+p[1]+'">'+p[1]+'</span></div>'}).join(''):'<div class="none">無</div>';
+  h+='<div class="lbl">可接替上場</div>';
+  h+=sub.length?'<div class="sub-list">'+sub.map(function(n){return '<span class="chip">'+n+'</span>'}).join('')+'</div>':'<div class="none">無</div>';
+  return h+'</div>';
+}
+document.getElementById("grid").innerHTML=G.map(function(g){
+  return '<section class="game"><div class="head"><span>'+T[g[0]][0]+'</span><small>@</small><span>'+T[g[1]][0]+'</span></div><div class="teams">'+team(g[0])+team(g[1])+'</div></section>';
+}).join("");
+</script>
+</body>
+</html>
