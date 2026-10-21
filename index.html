@@ -7,10 +7,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
---P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;--FA:#1d6fd6;--W:#7b4bd1;
+--pk:#e3e8ed;--P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;--FA:#1d6fd6;--W:#7b4bd1;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0}}
-:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0}}
+:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6}
@@ -30,6 +30,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 .tn small{color:var(--mute);font-weight:500;margin-left:4px}
 .lbl{font-size:.8rem;color:var(--mute);margin:10px 0 4px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:.92rem}
+.row.pk{padding:3px 0;margin-bottom:3px}
+.nm{background:var(--pk);border-radius:999px;padding:3px 14px}
 .tags{display:flex;gap:4px;flex:none}
 .b{display:inline-block;min-width:24px;text-align:center;border-radius:4px;padding:0 6px;font-size:.78rem;font-weight:700;color:#fff}
 .b.P{background:var(--P)}.b.Q{background:var(--Q);color:var(--Qink)}.b.D{background:var(--D)}.b.O{background:var(--O)}
@@ -78,9 +80,9 @@ POR:["拓荒者","Deni Avdija Q;Micah Potter Q FA;Scoot Henderson FA;Sidy Cissok
 };
 var G=[["ATL","ORL"],["CHA","BKN"],["CHI","TOR"],["DAL","HOU"],["GSW","LAL"],["IND","NOP"],["SAC","LAC"],["UTA","MEM"],["MIN","MIA"],["MIL","WAS"],["PHX","POR"]];
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
-function row(p){
+function row(p,pk){
   var tags=(p.s?badge(p.s):'')+(p.a==='W'?badge('W'):'');
-  return '<div class="row"><span>'+p.n+'</span><span class="tags">'+tags+'</span></div>';
+  return '<div class="row'+(pk?' pk':'')+'"><span'+(pk?' class="nm"':'')+'>'+p.n+'</span><span class="tags">'+tags+'</span></div>';
 }
 function team(c){
   var t=T[c],held=[],pick=[];
@@ -92,9 +94,9 @@ function team(c){
   pick.sort(function(x,y){return (x.a==="W")-(y.a==="W")});
   var h='<div class="team"><div class="tn">'+t[0]+'<small>'+c+'</small></div>';
   h+='<div class="lbl">出場疑慮（已有人持有）</div>';
-  h+=held.length?held.map(row).join(''):'<div class="none">無</div>';
+  h+=held.length?held.map(function(p){return row(p,0)}).join(''):'<div class="none">無</div>';
   h+='<div class="lbl">可能撿取球員</div>';
-  h+=pick.length?pick.map(row).join(''):'<div class="none">無</div>';
+  h+=pick.length?pick.map(function(p){return row(p,1)}).join(''):'<div class="none">無</div>';
   return h+'</div>';
 }
 document.getElementById("grid").innerHTML=G.map(function(g){
