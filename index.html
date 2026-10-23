@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NBA 10/23 星期五對戰表</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
+--pk:#e3e8ed;--P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;--FA:#1d6fd6;--W:#7b4bd1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0}}
+:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
+.sub{color:var(--mute);margin:0 0 18px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:22px;font-size:.9rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:16px}
+.game{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.head{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:700;font-size:1.1rem}
+.head small{color:var(--mute);font-weight:500}
+.teams{display:grid;grid-template-columns:1fr 1fr}
+.team{padding:12px 14px}
+.team+.team{border-left:1px solid var(--line)}
+.tn{font-weight:700;margin-bottom:2px}
+.tn small{color:var(--mute);font-weight:500;margin-left:4px}
+.lbl{font-size:.8rem;color:var(--mute);margin:10px 0 4px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:.92rem}
+.row.pk{padding:3px 0;margin-bottom:3px}
+.nm{background:var(--pk);border-radius:999px;padding:3px 14px}
+.tags{display:flex;gap:4px;flex:none}
+.b{display:inline-block;min-width:24px;text-align:center;border-radius:4px;padding:0 6px;font-size:.78rem;font-weight:700;color:#fff}
+.b.P{background:var(--P)}.b.Q{background:var(--Q);color:var(--Qink)}.b.D{background:var(--D)}.b.O{background:var(--O)}
+.b.FA{background:var(--FA)}.b.W{background:var(--W)}
+.none{color:var(--mute);font-size:.9rem}
+@media (max-width:520px){.teams{grid-template-columns:1fr}.team+.team{border-left:0;border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<main>
+<h1>NBA 星期五對戰表</h1>
+<p class="sub">2026 年 10 月 23 日，共 12 場</p>
+<div class="legend">
+<span><i class="b P">P</i>Probable 很可能出賽</span>
+<span><i class="b Q">Q</i>Questionable 出賽成疑</span>
+<span><i class="b D">D</i>Doubtful 不太可能出賽</span>
+<span><i class="b O">O</i>Out 確定缺陣</span>
+<span><i class="b W">W</i>Waiver 無法隨時撿取</span>
+</div>
+<div class="grid" id="grid"></div>
+</main>
+<script>
+var T={
+ATL:["老鷹","Aaron Wiggins FA"],
+CHA:["黃蜂","Kon Knueppel O;Coby White O;Ryan Kalkbrenner FA;Royce O’Neale FA"],
+NYK:["尼克","Jose Alvarado FA"],
+BOS:["塞爾提克","Sam Hauser FA"],
+CHI:["公牛","Nic Claxton O;Josh Giddey P;Dailyn Swain D FA;Jordan Hawkins D FA;Tobe Awaka FA;Zach Collins P FA"],
+MIL:["公鹿",""],
+DAL:["獨行俠","Dereck Lively II O FA;Santi Aldama O FA;Caleb Martin O FA;Jett Howard D FA;Marcus Sasser FA"],
+IND:["溜馬","Aaron Nesmith Q W;TJ Mcconnell O FA;Jarace Walker FA;Ben Sheppard Q FA"],
+DET:["活塞","Isaiah Joe FA"],
+MIA:["熱火",""],
+MEM:["灰熊","Jaylen Wells FA;Isaiah Stewart Q;Cedric Coward D"],
+GSW:["勇士","Brandin Podziemski Q;Jimmy Butler O;Kristaps Porzingis O FA;Charles Bassey Q FA;Moses Moody O FA;Brandon Williams FA;Will Richards FA;Gary Payton II FA"],
+HOU:["火箭","Steven Adams Q FA;Reed Sheppard Q"],
+SAS:["馬刺","Devin Vassell W;Julian Champagnie W;Keldon Johnson W;Tobias Harris Q;De’Aaron Fox Q"],
+LAC:["快艇","Bradley Beal O FA;Kris Dunn FA;Kobe Sanders FA"],
+LAL:["湖人","Jake LaRavia Q FA;Cameron Carr O FA;Ziaire Williams FA"],
+MIN:["灰狼","Terrence Shannon Jr. FA"],
+ORL:["魔術","Anthony Black O"],
+NOP:["鵜鶘","Bennedict Mathurin FA"],
+UTA:["爵士",""],
+POR:["拓荒者",""],
+SAC:["國王","Precious Achuiwa W;Malik Monk P FA"],
+TOR:["暴龍","Ja’Kobe Walter FA"],
+WAS:["巫師","AJ Dybantsa O;Bub Carrington FA;Justin Champagnie FA"]
+};
+var G=[["ATL","CHA"],["NYK","BOS"],["CHI","MIL"],["DAL","IND"],["DET","MIA"],["MEM","GSW"],["HOU","SAS"],["LAC","LAL"],["MIN","ORL"],["NOP","UTA"],["POR","SAC"],["TOR","WAS"]];
+function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
+function row(p,pk){
+  var tags=(p.s?badge(p.s):'')+(p.a==='W'?badge('W'):'');
+  return '<div class="row'+(pk?' pk':'')+'"><span'+(pk?' class="nm"':'')+'>'+p.n+'</span><span class="tags">'+tags+'</span></div>';
+}
+function team(c){
+  var t=T[c],held=[],pick=[];
+  t[1].split(";").forEach(function(s){
+    if(!s)return;
+    var m=s.match(/^(.*?)(?:\s([PQDO]))?(?:\s(FA|W))?$/);
+    var p={n:m[1],s:m[2]||"",a:m[3]||""};
+    (p.a?pick:held).push(p);
+  });
+  pick.sort(function(x,y){return (x.a==="W")-(y.a==="W")});
+  var h='<div class="team"><div class="tn">'+t[0]+'<small>'+c+'</small></div>';
+  h+='<div class="lbl">出場疑慮（已有人持有）</div>';
+  h+=held.length?held.map(function(p){return row(p,0)}).join(''):'<div class="none">無</div>';
+  h+='<div class="lbl">可能撿取球員</div>';
+  h+=pick.length?pick.map(function(p){return row(p,1)}).join(''):'<div class="none">無</div>';
+  return h+'</div>';
+}
+document.getElementById("grid").innerHTML=G.map(function(g){
+  return '<section class="game"><div class="head"><span>'+T[g[0]][0]+'</span><small>@</small><span>'+T[g[1]][0]+'</span></div><div class="teams">'+team(g[0])+team(g[1])+'</div></section>';
+}).join("");
+</script>
+</body>
+</html>
