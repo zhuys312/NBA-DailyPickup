@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NBA 10/28 星期三對戰表</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
+--pk:#e3e8ed;--P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;--FA:#1d6fd6;--W:#7b4bd1;--NG:#4b5563;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0;--NG:#6b7b8b}}
+:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0;--NG:#6b7b8b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
+.sub{color:var(--mute);margin:0 0 18px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:22px;font-size:.9rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:16px}
+.game{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.head{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:700;font-size:1.1rem}
+.head small{color:var(--mute);font-weight:500}
+.teams{display:grid;grid-template-columns:1fr 1fr}
+.team{padding:12px 14px}
+.team+.team{border-left:1px solid var(--line)}
+.tn{font-weight:700;margin-bottom:2px}
+.tn small{color:var(--mute);font-weight:500;margin-left:4px}
+.lbl{font-size:.8rem;color:var(--mute);margin:10px 0 4px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:.92rem}
+.row.pk{padding:3px 0;margin-bottom:3px}
+.nm{background:var(--pk);border-radius:999px;padding:3px 14px}
+.tags{display:flex;gap:4px;flex:none}
+.b{display:inline-block;min-width:24px;text-align:center;border-radius:4px;padding:0 6px;font-size:.78rem;font-weight:700;color:#fff}
+.b.P{background:var(--P)}.b.Q{background:var(--Q);color:var(--Qink)}.b.D{background:var(--D)}.b.O{background:var(--O)}
+.b.FA{background:var(--FA)}.b.W{background:var(--W)}
+.ng{grid-column:1/-1}.ngl{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0 24px;padding:12px 14px}.blank{min-height:44px}.tc{color:var(--mute);font-size:.75rem;font-weight:500;margin-right:6px}
+.none{color:var(--mute);font-size:.9rem}
+@media (max-width:520px){.teams{grid-template-columns:1fr}.team+.team{border-left:0;border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<main>
+<h1>NBA 星期三對戰表</h1>
+<p class="sub">2026 年 10 月 28 日，共 12 場</p>
+<div class="legend">
+<span><i class="b P">P</i>Probable 很可能出賽</span>
+<span><i class="b Q">Q</i>Questionable 出賽成疑</span>
+<span><i class="b D">D</i>Doubtful 不太可能出賽</span>
+<span><i class="b O">O</i>Out 確定缺陣</span>
+<span><i class="b W">W</i>Waiver 無法隨時撿取</span>
+</div>
+<div class="grid" id="grid"></div>
+</main>
+<script>
+var T={
+MIA:["熱火","Pelle Larsson P;Simone Fontecchio D FA"],
+ATL:["老鷹","Aaron Wiggins Q;Jock Landale FA"],
+CHA:["黃蜂","Ryan Kalkbrenner FA"],
+DET:["活塞","Jalen Duren O;Ronald Holland II FA;Isaiah Joe O FA"],
+NYK:["尼克","Jose Alvarado O FA;Landry Shamet FA"],
+CHI:["公牛",""],
+WAS:["巫師","Justin Champagnie O;AJ Dybantsa Q"],
+CLE:["騎士",""],
+OKC:["雷霆","Jalen Williams O;Chet Holmgren O;Ajay Mitchell Q;Cason Wallace O;Alex Caruso O;Aday Mara W"],
+DAL:["獨行俠","Naji Marshall Q;Kyrie Irving Q;Sergio De Larrea O FA;Morez Johnson Jr. FA;Santi Aldama O FA;Caleb Martin O FA"],
+DEN:["金塊","Cameron Johnson D FA;Alpha Diallo O FA;Spencer Jones O FA;Bryce Hopkins FA"],
+NOR:["鵜鶘","Jordan Poole P FA"],
+GSW:["勇士","Yaxel Lendeborg Q;Georges Niang FA;Brandon Williams FA"],
+MIN:["灰狼","Anthony Edwards O"],
+HOU:["火箭","Alperen Şengün O;Marcus Smart Q FA;Steven Adams O FA;Clint Capela FA"],
+MIL:["公鹿",""],
+PHI:["七六人","Dean Wade W;K. Caldwell-Pope W;Anfernee Simons FA"],
+IND:["溜馬","Tyrese Haliburton Q;Andrew Nembhard Q;Obi Toppin P;Ivica Zubac O;Aaron Nesmith P W;Ben Sheppard O FA;T.J. McConnell O FA;Kobe Brown FA"],
+LAL:["湖人",""],
+LAC:["快艇","Rui Hachimura O;Kobe Sanders FA"],
+ORL:["魔術","Paolo Banchero O;Jalen Suggs O"],
+TOR:["暴龍","Kawhi Leonard O;Allen Graves W"],
+SAS:["馬刺",""],
+UTA:["爵士","Lauri Markkanen Q;Jaren Jackson Jr. O;Jaxson Hayes Q W;Mo Bamba FA;Brice Sensabaugh FA"]
+};
+var G=[["MIA","ATL"],["CHA","DET"],["NYK","CHI"],["WAS","CLE"],["OKC","DAL"],["DEN","NOR"],["GSW","MIN"],["HOU","MIL"],["PHI","IND"],["LAL","LAC"],["ORL","TOR"],["SAS","UTA"]];
+var NGL="";
+function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
+function parseStr(str,c){
+  var out=[];
+  str.split(";").forEach(function(s){
+    if(!s.trim())return;
+    var m=s.trim().split(/\s+/),p={s:"",a:"",g:false,c:c};
+    while(m.length>1){
+      var x=m[m.length-1];
+      if(x.toLowerCase()==="game"&&m.length>2&&m[m.length-2].toLowerCase()==="no"){p.g=true;m.length-=2;continue}
+      if(/^[PQDO]$/.test(x)&&!p.s){p.s=x;m.pop();continue}
+      if((x==="FA"||x==="W")&&!p.a){p.a=x;m.pop();continue}
+      break;
+    }
+    p.n=m.join(" ");
+    out.push(p);
+  });
+  return out;
+}
+function parse(c){return parseStr(T[c][1],c)}
+function row(p,pk,tc){
+  var tags=(p.s?badge(p.s):'')+(p.a==='W'?badge('W'):'');
+  var nm='<span'+(pk?' class="nm"':'')+'>'+p.n+'</span>';
+  return '<div class="row'+(pk?' pk':'')+'"><span>'+(tc&&p.c?'<small class="tc">'+p.c+'</small>':'')+nm+'</span><span class="tags">'+tags+'</span></div>';
+}
+function held(list,tc){
+  var a=list.filter(function(p){return !p.a&&p.s!=='O'});
+  return '<div class="lbl">出場疑慮（已有人持有）</div>'+(a.length?a.map(function(p){return row(p,0,tc)}).join(''):'<div class="none">無</div>');
+}
+function pick(list,tc){
+  var a=list.filter(function(p){return p.a&&p.s!=='O'}).sort(function(x,y){return (x.a==="W")-(y.a==="W")});
+  return '<div class="lbl">可能撿取球員</div>'+(a.length?a.map(function(p){return row(p,1,tc)}).join(''):'<div class="none">無</div>');
+}
+function outs(list,tc){
+  var rk=function(p){return p.a==="FA"?0:p.a==="W"?1:2};
+  var a=list.filter(function(p){return p.s==='O'}).sort(function(x,y){return rk(x)-rk(y)});
+  return '<div class="lbl">不上場</div>'+(a.length?a.map(function(p){return row(p,!!p.a,tc)}).join(''):'<div class="none">無</div>');
+}
+function team(c){
+  var list=parse(c).filter(function(p){return !p.g});
+  return '<div class="team"><div class="tn">'+T[c][0]+'<small>'+c+'</small></div>'+held(list,0)+pick(list,0)+outs(list,0)+'</div>';
+}
+var order=[];
+G.forEach(function(g){g.forEach(function(c){order.push(c)})});
+Object.keys(T).forEach(function(c){if(order.indexOf(c)<0)order.push(c)});
+var ng=parseStr(NGL,"");
+order.forEach(function(c){parse(c).forEach(function(p){if(p.g)ng.push(p)})});
+var ngO=ng.filter(function(p){return p.s==='O'}),ngP=ng.filter(function(p){return p.s!=='O'}).sort(function(x,y){return (x.a==="W")-(y.a==="W")});
+var ngHtml='<section class="game ng"><div class="head"><span>No Game 可撿取球員</span></div>'+
+  (ng.length?'<div class="ngl">'+ngP.map(function(p){return row(p,1,1)}).join('')+'</div>'+(ngO.length?'<div class="lbl" style="padding:0 14px">不上場</div><div class="ngl">'+ngO.map(function(p){return row(p,!!p.a,1)}).join('')+'</div>':''):'<div class="blank"></div>')+'</section>';
+document.getElementById("grid").innerHTML=ngHtml+G.map(function(g){
+  return '<section class="game"><div class="head"><span>'+T[g[0]][0]+'</span><small>@</small><span>'+T[g[1]][0]+'</span></div><div class="teams">'+team(g[0])+team(g[1])+'</div></section>';
+}).join("");
+</script>
+</body>
+</html>
