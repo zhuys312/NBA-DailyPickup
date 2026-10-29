@@ -43,8 +43,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期三對戰表</h1>
-<p class="sub">2026 年 10 月 28 日，共 12 場</p>
+<h1>NBA 星期四對戰表</h1>
+<p class="sub">2026 年 10 月 29 日，共 3 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -56,33 +56,15 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-MIA:["熱火","Pelle Larsson P;Simone Fontecchio D FA"],
-ATL:["老鷹","Aaron Wiggins Q;Jock Landale FA"],
-CHA:["黃蜂","Ryan Kalkbrenner FA"],
-DET:["活塞","Jalen Duren O;Ronald Holland II FA;Isaiah Joe O FA"],
-NYK:["尼克","Jose Alvarado O FA;Landry Shamet FA"],
-CHI:["公牛",""],
-WAS:["巫師","Justin Champagnie O;AJ Dybantsa Q"],
-CLE:["騎士",""],
-OKC:["雷霆","Jalen Williams O;Chet Holmgren O;Ajay Mitchell Q;Cason Wallace O;Alex Caruso O;Aday Mara W"],
-DAL:["獨行俠","Naji Marshall Q;Kyrie Irving Q;Sergio De Larrea O FA;Morez Johnson Jr. FA;Santi Aldama O FA;Caleb Martin O FA"],
-DEN:["金塊","Cameron Johnson D FA;Alpha Diallo O FA;Spencer Jones O FA;Bryce Hopkins FA"],
-NOR:["鵜鶘","Jordan Poole P FA"],
-GSW:["勇士","Yaxel Lendeborg Q;Georges Niang FA;Brandon Williams FA"],
-MIN:["灰狼","Anthony Edwards O"],
-HOU:["火箭","Alperen Şengün O;Marcus Smart Q FA;Steven Adams O FA;Clint Capela FA"],
-MIL:["公鹿",""],
-PHI:["七六人","Dean Wade W;K. Caldwell-Pope W;Anfernee Simons FA"],
-IND:["溜馬","Tyrese Haliburton Q;Andrew Nembhard Q;Obi Toppin P;Ivica Zubac O;Aaron Nesmith P W;Ben Sheppard O FA;T.J. McConnell O FA;Kobe Brown FA"],
-LAL:["湖人",""],
-LAC:["快艇","Rui Hachimura O;Kobe Sanders FA"],
-ORL:["魔術","Paolo Banchero O;Jalen Suggs O"],
-TOR:["暴龍","Kawhi Leonard O;Allen Graves W"],
-SAS:["馬刺",""],
-UTA:["爵士","Lauri Markkanen Q;Jaren Jackson Jr. O;Jaxson Hayes Q W;Mo Bamba FA;Brice Sensabaugh FA"]
+CLE:["騎士","Meleek Thomas FA"],
+ATL:["老鷹","Luguentz Dort FA"],
+MEM:["灰熊","Cam Spencer FA;Scotty Pippen Jr. FA"],
+POR:["拓荒者",""],
+SAC:["國王",""],
+NOR:["鵜鶘","Yves Missi O;Jordan Poole Q FA"]
 };
-var G=[["MIA","ATL"],["CHA","DET"],["NYK","CHI"],["WAS","CLE"],["OKC","DAL"],["DEN","NOR"],["GSW","MIN"],["HOU","MIL"],["PHI","IND"],["LAL","LAC"],["ORL","TOR"],["SAS","UTA"]];
-var NGL="";
+var G=[["CLE","ATL"],["MEM","POR"],["SAC","NOR"]];
+var NGL="Aaron Nesmith W;Moritz Wagner FA";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
