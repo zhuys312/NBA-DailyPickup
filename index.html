@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 10/29 星期四對戰表</title>
+<title>NBA 10/30 星期五對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
@@ -43,8 +43,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期四對戰表</h1>
-<p class="sub">2026 年 10 月 29 日，共 3 場</p>
+<h1>NBA 星期五對戰表</h1>
+<p class="sub">2026 年 10 月 30 日，共 10 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -56,15 +56,29 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-CLE:["騎士","Meleek Thomas FA"],
-ATL:["老鷹","Luguentz Dort FA"],
-MEM:["灰熊","Cam Spencer FA;Scotty Pippen Jr. FA"],
-POR:["拓荒者",""],
-SAC:["國王",""],
-NOR:["鵜鶘","Yves Missi O;Jordan Poole Q FA"]
+CHI:["公牛","Jalen Smith Q;Tobe Awaka Q FA;Zach Collins FA"],
+BOS:["塞爾提克","Jordan Walsh FA;Sam Hauser W"],
+DET:["活塞","Isaiah Joe Q FA"],
+BKN:["籃網","Nolan Traore W;Moritz Wagner FA;Keon Ellis W;Chaney Johnson FA"],
+CHA:["黃蜂","Dennis Schröder Q;Royce O’Neale FA"],
+WAS:["巫師","Bilal Coulibaly W;Tre Johnson FA"],
+HOU:["火箭","Alperen Şengün Q;Reed Sheppard O;Bogdan Bogdanovic FA;Marcus Smart Q FA"],
+DAL:["獨行俠","Naji Marshall Q;Max Christie FA;Caleb Martin FA;Morez Johnson Jr. FA;Sergio De Larrea O FA;Santi Aldama D"],
+DEN:["金塊","Marvin Bagley III FA;Alpha Diallo Q FA;Cameron Johnson Q FA"],
+PHX:["太陽","Collin Gillespie W;Oso Ighodaro Q FA;Jordan Goodwin FA"],
+LAL:["湖人","Ziaire Williams Q W;Jake LaRavia FA;Collin Sexton FA"],
+GSW:["勇士","Gui Santos D W;De’Anthony Melton FA;Brandon Williams FA;Georges Niang FA"],
+IND:["溜馬","Andrew Nembhard P;Aaron Nesmith P FA;Ben Sheppard O FA;Quenton Jackson FA"],
+MIA:["熱火","Tim Hardaway Jr. FA"],
+LAC:["快艇","Rui Hachimura Q"],
+MIN:["灰狼",""],
+NYK:["尼克","Landry Shamet FA"],
+PHI:["七六人","Jaylen Brown Q;Jabari Walker O FA;K. Caldwell-Pope FA"],
+ORL:["魔術",""],
+TOR:["暴龍","Jamal Shead FA"]
 };
-var G=[["CLE","ATL"],["MEM","POR"],["SAC","NOR"]];
-var NGL="Aaron Nesmith W;Moritz Wagner FA";
+var G=[["CHI","BOS"],["DET","BKN"],["CHA","WAS"],["HOU","DAL"],["DEN","PHX"],["LAL","GSW"],["IND","MIA"],["LAC","MIN"],["NYK","PHI"],["ORL","TOR"]];
+var NGL="";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
