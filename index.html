@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 11/3 星期二對戰表</title>
+<title>NBA 11/5 星期四對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
@@ -43,8 +43,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期二對戰表</h1>
-<p class="sub">2026 年 11 月 3 日，當天沒有比賽</p>
+<h1>NBA 星期四對戰表</h1>
+<p class="sub">2026 年 11 月 5 日，共 2 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -55,9 +55,14 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 <div class="grid" id="grid"></div>
 </main>
 <script>
-var T={};
-var G=[];
-var NGL="Meleek Thomas FA;Marcus Smart W;Bilal Coulibaly FA;Mario Hezonja FA;Karlo Matkovic W;Max Strus FA;Malik Monk FA;Jusuf Nurkic W;Terrence Shannon Jr. W";
+var T={
+MIA:["熱火",""],
+GSW:["勇士","De’Anthony Melton W;Brandon Williams FA;Gui Santos O FA"],
+ORL:["魔術",""],
+PHX:["太陽",""]
+};
+var G=[["MIA","GSW"],["ORL","PHX"]];
+var NGL="Bilal Coulibaly FA;Matisse Thybulle FA;Kingston Flemings W;Jarace Walker FA;Baylor Scheierman FA;Dennis Schröder FA;Sam Merrill FA";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
