@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 11/5 星期四對戰表</title>
+<title>NBA 11/6 星期五對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
---pk:#e3e8ed;--P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;--FA:#1d6fd6;--W:#7b4bd1;--NG:#4b5563;
+--pk:#e3e8ed;--P:#1f9d55;--Q:#e0a100;--D:#e8590c;--O:#d62839;--Qink:#2a1f00;--FA:#1d6fd6;--W:#7b4bd1;--NG:#4b5563;--B2:#0f766e;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0;--NG:#6b7b8b}}
-:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0;--NG:#6b7b8b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0;--NG:#6b7b8b;--B2:#2dd4bf}}
+:root[data-theme="dark"]{--bg:#10171e;--card:#18222c;--ink:#e8eef3;--mute:#93a3b1;--line:#2b3947;--pk:#2a3948;--P:#2fb86b;--Q:#f0b429;--D:#f2762e;--O:#ef4a5b;--FA:#3b8af0;--W:#9a6ff0;--NG:#6b7b8b;--B2:#2dd4bf}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6}
@@ -27,6 +27,7 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 .team{padding:12px 14px}
 .team+.team{border-left:1px solid var(--line)}
 .tn{font-weight:700;margin-bottom:2px}
+.b2b{margin-left:8px;font-size:.75rem;font-weight:700;color:var(--B2);border:1px solid var(--B2);border-radius:4px;padding:0 6px;white-space:nowrap}
 .tn small{color:var(--mute);font-weight:500;margin-left:4px}
 .lbl{font-size:.8rem;color:var(--mute);margin:10px 0 4px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:.92rem}
@@ -43,8 +44,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期四對戰表</h1>
-<p class="sub">2026 年 11 月 5 日，共 2 場</p>
+<h1>NBA 星期五對戰表</h1>
+<p class="sub">2026 年 11 月 6 日，共 9 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -56,13 +57,27 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-MIA:["熱火",""],
-GSW:["勇士","De’Anthony Melton W;Brandon Williams FA;Gui Santos O FA"],
-ORL:["魔術",""],
-PHX:["太陽",""]
+WAS:["巫師","Anthony Davis Q;Deandre Ayton W",true],
+ATL:["老鷹","Jalen Johnson Q;Jock Landale O FA;Asa Newell O FA;Luguentz Dort FA",true],
+BOS:["塞爾提克","Payton Pritchard Q;Mitchell Robinson W;Baylor Scheierman FA;Luka Garza FA"],
+CHA:["黃蜂","Moussa Diabaté Q;Dennis Schröder Q;Kon Knueppel O"],
+PHI:["七六人","Adem Bona D FA;Dean Wade FA"],
+CLE:["騎士","Jarrett Allen Q;Peyton Watson Q;Tyrese Proctor Q FA;Jaylon Tyson O FA;Sam Merrill FA;Mario Hezonja W",true],
+UTA:["爵士",""],
+DAL:["獨行俠","Walter Clayton Jr. FA;Max Christie P FA;Morez Johnson Jr. FA"],
+POR:["拓荒者","Sidy Cissoko FA",true],
+LAL:["湖人","Ziaire Williams FA;Matisse Thybulle FA;Sandro Mamukelashvili Q"],
+OKC:["雷霆","Bennett Stirtz FA;Jaylin Williams O W",true],
+MEM:["灰熊","Isaiah Stewart O;Scotty Pippen Jr. O FA;Jerami Grant FA"],
+TOR:["暴龍","Scottie Barnes Q;Jakob Poeltl W"],
+MIL:["公鹿",""],
+MIN:["灰狼","Terrence Shannon Jr. Q;Bones Hyland FA"],
+NOR:["鵜鶘","Yves Missi O;Trey Murphy III P;Herbert Jones FA"],
+SAS:["馬刺","",true],
+SAC:["國王","Leaky Black FA"]
 };
-var G=[["MIA","GSW"],["ORL","PHX"]];
-var NGL="Bilal Coulibaly FA;Matisse Thybulle FA;Kingston Flemings W;Jarace Walker FA;Baylor Scheierman FA;Dennis Schröder FA;Sam Merrill FA";
+var G=[["WAS","ATL"],["BOS","CHA"],["PHI","CLE"],["UTA","DAL"],["POR","LAL"],["OKC","MEM"],["TOR","MIL"],["MIN","NOR"],["SAS","SAC"]];
+var NGL="Maxime Raynaud O W;Aaron Nesmith FA";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
@@ -102,7 +117,7 @@ function outs(list,tc){
 }
 function team(c){
   var list=parse(c).filter(function(p){return !p.g});
-  return '<div class="team"><div class="tn">'+T[c][0]+'<small>'+c+'</small></div>'+held(list,0)+pick(list,0)+outs(list,0)+'</div>';
+  return '<div class="team"><div class="tn">'+T[c][0]+'<small>'+c+'</small>'+(T[c][2]?'<span class="b2b">連續兩日比賽</span>':'')+'</div>'+held(list,0)+pick(list,0)+outs(list,0)+'</div>';
 }
 var order=[];
 G.forEach(function(g){g.forEach(function(c){order.push(c)})});
