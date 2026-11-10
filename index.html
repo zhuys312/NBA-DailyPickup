@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 11/9 星期一對戰表</title>
+<title>NBA 11/10 星期二對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
@@ -44,8 +44,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期一對戰表</h1>
-<p class="sub">2026 年 11 月 9 日，共 8 場</p>
+<h1>NBA 星期二對戰表</h1>
+<p class="sub">2026 年 11 月 10 日，共 6 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -57,25 +57,21 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-LAL:["湖人","Sandro Mamukelashvili W;Ziaire Williams W;Quentin Grimes Q FA"],
-ATL:["老鷹","Jock Landale Q FA;Asa Newell O FA;Zuby Ejiofor FA"],
-CLE:["騎士","Jarrett Allen Q;Sam Merrill O W;Jaylon Tyson O FA"],
-CHA:["黃蜂","Brandon Miller O;Moussa Diabaté Q;Dennis Schröder O"],
-IND:["溜馬","Larry Nance Jr. FA;T.J. McConnell Q"],
-DAL:["獨行俠",""],
-DEN:["金塊","Nikola Jokic Q;Jamal Murray Q;Christian Braun Q;Aaron Gordon Q;Cameron Johnson Q;DeMar DeRozan Q;Spencer Jones FA;Marvin Bagley III FA;Bryce Hopkins FA;Tyus Jones FA;Cam Whitmore FA"],
-HOU:["火箭","Marcus Smart FA"],
-WAS:["巫師","Anthony Davis Q"],
-DET:["活塞",""],
-NOR:["鵜鶘",""],
-GSW:["勇士","De’Anthony Melton FA;Charles Bassey FA;Georges Niang FA;Gui Santos P FA;Will Richard O FA"],
-MEM:["灰熊","Isaiah Stewart O;Scotty Pippen Jr. O;Jaylen Wells W;Cam Spencer W;Jerami Grant FA"],
-TOR:["暴龍","Scottie Barnes Q;Immanuel Quickley Q;Alijah Martin FA"],
-SAS:["馬刺","Devin Vassell Q;Luke Kornet FA;Harrison Barnes FA"],
-PHX:["太陽","Jordan Goodwin Q FA",true]
+BOS:["塞爾提克","",true],
+PHI:["七六人","Adem Bona O FA;Jabari Walker FA"],
+LAC:["快艇","Y. Konan Niederhäuser O;Brandon Ingram O;Gradey Dick FA;Cam Christie Q FA"],
+PHX:["太陽","Jordan Goodwin O FA;Oso Ighodaro W"],
+MIA:["熱火","Giannis Antetokounmpo P;Ryan Conwell FA"],
+UTA:["爵士","Keyonte George O;Lauri Markkanen Q;Josh Green FA;Mo Bamba FA",true],
+MIL:["公鹿","Tyler Herro Q;Nate Ament FA",true],
+NYK:["尼克","Josh Hart Q;Andre Drummond W;Landry Shamet FA",true],
+OKC:["雷霆","Bennett Stirtz W;Kenrich Williams W;Alex Caruso W;Jaylin Williams O FA",true],
+POR:["拓荒者","Sidy Cissoko FA;Chris Youngblood FA",true],
+ORL:["魔術","Jase Richardson FA;Jamal Cain FA",true],
+SAC:["國王","Domantas Sabonis Q;Keegan Murray Q;Leaky Black FA;Maxime Raynaud O W"]
 };
-var G=[["LAL","ATL"],["CLE","CHA"],["IND","DAL"],["DEN","HOU"],["WAS","DET"],["NOR","GSW"],["MEM","TOR"],["SAS","PHX"]];
-var NGL="Joan Beringer W;Ryan Kalkbrenner W;Mitchell Robinson W";
+var G=[["BOS","PHI"],["LAC","PHX"],["MIA","UTA"],["MIL","NYK"],["OKC","POR"],["ORL","SAC"]];
+var NGL="Joan Beringer FA;Ryan Kalkbrenner FA;Julian Champagnie W;Aaron Nesmith W;Meleek Thomas W;De’Anthony Melton FA";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
