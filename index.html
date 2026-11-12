@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 11/11 星期三對戰表</title>
+<title>NBA 11/12 星期四對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
@@ -45,8 +45,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期三對戰表</h1>
-<p class="sub">2026 年 11 月 11 日，共 10 場</p>
+<h1>NBA 星期四對戰表</h1>
+<p class="sub">2026 年 11 月 12 日，共 4 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -58,29 +58,17 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-BOS:["塞爾提克","","prev"],
-TOR:["暴龍","Scottie Barnes O;Immanuel Quickley Q;Collin Murray-Boyles Q;Jamison Battle FA;Trayce Jackson-Davis Q FA","b2b"],
-BKN:["籃網","Danny Wolf W;Egor Demin P;Nolan Traore Q;Moritz Wagner W"],
-NOR:["鵜鶘","Trey Murphy III P"],
-SAS:["馬刺","Devin Vassell Q;Julian Champagnie FA;Luke Kornet FA"],
-CHI:["公牛","Norman Powell Q;Isaac Okoro FA;Tre Jones W"],
-CLE:["騎士","Sam Merrill O FA;Jaylon Tyson O FA;Tyrese Proctor FA"],
-NYK:["尼克","Landry Shamet FA;Josh Hart O","prev"],
-DEN:["金塊",""],
-MEM:["灰熊","Isaiah Stewart Q;Scotty Pippen Jr. O FA;Quinten Post O FA;Taylor Hendricks FA;Javon Small FA"],
-GSW:["勇士","De’Anthony Melton FA;Al Horford FA;Brandon Williams O FA;Will Richard Q FA;Charles Bassey FA;Gary Payton II O"],
-HOU:["火箭","Marcus Smart FA"],
-WAS:["巫師","Bilal Coulibaly FA","b2b"],
-IND:["溜馬","Obi Toppin FA;Quenton Jackson W;Kelly Oubre Jr. FA"],
-LAL:["湖人","Quentin Grimes Q FA;Jake LaRavia FA"],
-MIL:["公鹿","Tyler Herro O","prev"],
-OKC:["雷霆","Alex Caruso FA","prev"],
-POR:["拓荒者","Sidy Cissoko FA","prev"],
-ORL:["魔術","Tristan da Silva O","prev"],
-UTA:["爵士","Keyonte George O;Lauri Markkanen O;Josh Green FA","prev"]
+CHA:["黃蜂","Brandon Miller O;Moussa Diabaté P;Royce O’Neale W;Tidjane Salaün FA;Grant Williams P FA"],
+PHX:["太陽","Jordan Goodwin FA"],
+DAL:["獨行俠","Morez Johnson Jr. P;Walter Clayton Jr. W;Sergio De Larrea O FA;Zaccharie Risacher FA"],
+MIN:["灰狼","Joan Beringer FA;Terrence Shannon Jr. FA;Bones Hyland FA;Trey Lyles FA"],
+DET:["活塞","Kevin Huerter W"],
+WAS:["巫師","Tre Johnson FA","prev"],
+TOR:["暴龍","Scottie Barnes O;Jamison Battle FA;Trayce Jackson-Davis O FA","prev"],
+PHI:["七六人","LeBron James Q;Joel Embiid Q;Adem Bona O FA;Anfernee Simons FA"]
 };
-var G=[["BOS","TOR"],["BKN","NOR"],["SAS","CHI"],["CLE","NYK"],["DEN","MEM"],["GSW","HOU"],["WAS","IND"],["LAL","MIL"],["OKC","POR"],["ORL","UTA"]];
-var NGL="Jordan Goodwin FA;Kobe Sanders W";
+var G=[["CHA","PHX"],["DAL","MIN"],["DET","WAS"],["TOR","PHI"]];
+var NGL="";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
