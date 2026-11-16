@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 11/13 星期五對戰表</title>
+<title>NBA 11/16 星期一對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
@@ -29,6 +29,7 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 .tn{font-weight:700;margin-bottom:2px}
 .b2b{margin-left:8px;font-size:.75rem;font-weight:700;color:var(--B2);border:1px solid var(--B2);border-radius:4px;padding:0 6px;white-space:nowrap}
 .prev{margin-left:8px;font-size:.75rem;font-weight:700;color:var(--FA);border:1px solid var(--FA);border-radius:4px;padding:0 6px;white-space:nowrap}
+.pn{display:block;color:var(--mute);font-size:.78rem;line-height:1.35;margin-top:2px;font-weight:400}
 .tn small{color:var(--mute);font-weight:500;margin-left:4px}
 .lbl{font-size:.8rem;color:var(--mute);margin:10px 0 4px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:.92rem}
@@ -45,8 +46,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期五對戰表</h1>
-<p class="sub">2026 年 11 月 13 日，共 9 場</p>
+<h1>NBA 星期一對戰表</h1>
+<p class="sub">2026 年 11 月 16 日，共 8 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -58,33 +59,33 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-CHI:["公牛","Norman Powell Q","b2b"],
-ATL:["老鷹","Kingston Flemings Q;Asa Newell O FA;Luguentz Dort FA;Jock Landale FA"],
-MIA:["熱火","Giannis Antetokounmpo P;Klay Thompson Q;Pelle Larsson Q","b2b"],
-CLE:["騎士","Evan Mobley O;Tyrese Proctor FA;Sam Merrill Q FA","b2b"],
-SAS:["馬刺","Devin Vassell Q;De’Aaron Fox Q;Luke Kornet FA"],
-GSW:["勇士","Charles Bassey P;Brandon Williams O FA;Georges Niang FA;Will Richard FA;Al Horford FA"],
-HOU:["火箭","Marcus Smart O FA;Bogdan Bogdanović FA"],
-UTA:["爵士","Josh Green FA"],
-IND:["溜馬","Aaron Nesmith Q;Kelly Oubre Jr. FA"],
-NYK:["尼克","Miles McBride FA"],
-LAC:["快艇","Kobe Sanders FA;Gradey Dick FA"],
-OKC:["雷霆","Ajay Mitchell Q;Jaylin Williams O FA;Kenrich Williams W;Bennett Stirtz W"],
-NOR:["鵜鶘","Trey Murphy III D;Jordan Poole FA;Herbert Jones FA;Karlo Matković FA;Trendon Watford O FA;Bennedict Mathurin D FA;Bryce McGowens D FA","b2b"],
-MEM:["灰熊","Jaylen Wells W;Zach Edey O;Quinten Post O FA","b2b"],
-ORL:["魔術","Tristan da Silva Q;Jamal Cain Q W;Jalen Suggs Q;Jase Richardson W"],
-MIL:["公鹿",""],
-SAC:["國王","Precious Achiuwa Q"],
-POR:["拓荒者",""]
+BOS:["塞爾提克","Baylor Scheierman FA;Luka Garza FA(Mitchell Robinson可能out或減少時間)","prev"],
+ORL:["魔術","Goga Bitadze FA"],
+PHI:["七六人","","prev"],
+BKN:["籃網",""],
+CHI:["公牛","Jalen Smith Q;Tobe Awaka O FA;Leonard Miller FA"],
+CLE:["騎士","Evan Mobley O;Jaylon Tyson Q;Peyton Watson Q;Sam Merrill O FA;Craig Porter Jr. FA"],
+PHX:["太陽","Luke Kennard FA","prev"],
+DEN:["金塊",""],
+GSW:["勇士","Georges Niang FA;Gui Santos Q FA"],
+NOR:["鵜鶘","Trey Murphy III O;Dejounte Murray O;Herbert Jones FA;Jordan Poole FA;Bennedict Mathurin O;Trendon Watford O;Bryce McGowens O"],
+HOU:["火箭","Marcus Smart O(禁賽第三場);Reed Sheppard W","prev"],
+MIA:["熱火","Pelle Larsson Q;Ryan Conwell FA"],
+MEM:["灰熊","Ty Jerome O;Zach Edey Q;Isaiah Stewart Q;GG Jackson O FA;Quinten Post Q;Jerami Grant W"],
+WAS:["巫師","Bilal Coulibaly FA;Tre Johnson O(前一場Out)","prev"],
+POR:["拓荒者","Sidy Cissoko W","b2b"],
+MIN:["灰狼","Terrence Shannon Jr. FA;Trey Lyles FA;Jaylen Clark O","b2b"]
 };
-var G=[["ATL","CHI"],["CLE","MIA"],["GSW","SAS"],["UTA","HOU"],["NYK","IND"],["OKC","LAC"],["MEM","NOR"],["MIL","ORL"],["POR","SAC"]];
-var NGL="Collin Gillespie W;Ryan Dunn W";
+var G=[["ORL","BOS"],["PHI","BKN"],["CHI","CLE"],["PHX","DEN"],["GSW","NOR"],["HOU","MIA"],["MEM","WAS"],["POR","MIN"]];
+var NGL="Quenton Jackson(四才有比賽);T.J. McConnell(四才有比賽);Quentin Grimes;Kasparas Jakučionis";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
   str.split(";").forEach(function(s){
     if(!s.trim())return;
-    var m=s.trim().split(/\s+/),p={s:"",a:"",g:false,c:c};
+    var nt=s.match(/[(（]([^)）]*)[)）]/);
+    if(nt)s=s.replace(nt[0]," ");
+    var m=s.trim().split(/\s+/),p={s:"",a:"",g:false,c:c,t:nt?nt[1].trim():""};
     while(m.length>1){
       var x=m[m.length-1];
       if(x.toLowerCase()==="game"&&m.length>2&&m[m.length-2].toLowerCase()==="no"){p.g=true;m.length-=2;continue}
@@ -101,7 +102,7 @@ function parse(c){return parseStr(T[c][1],c)}
 function row(p,pk,tc){
   var tags=(p.s?badge(p.s):'')+(p.a==='W'?badge('W'):'');
   var nm='<span'+(pk?' class="nm"':'')+'>'+p.n+'</span>';
-  return '<div class="row'+(pk?' pk':'')+'"><span>'+(tc&&p.c?'<small class="tc">'+p.c+'</small>':'')+nm+'</span><span class="tags">'+tags+'</span></div>';
+  return '<div class="row'+(pk?' pk':'')+'"><span>'+(tc&&p.c?'<small class="tc">'+p.c+'</small>':'')+nm+(p.t?'<small class="pn">'+p.t.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</small>':'')+'</span><span class="tags">'+tags+'</span></div>';
 }
 function held(list,tc){
   var a=list.filter(function(p){return !p.a&&p.s!=='O'});
