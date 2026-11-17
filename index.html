@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NBA 11/16 星期一對戰表</title>
+<title>NBA 11/17 星期二對戰表</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#17222d;--mute:#667583;--line:#d9e0e6;
@@ -46,8 +46,8 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </head>
 <body>
 <main>
-<h1>NBA 星期一對戰表</h1>
-<p class="sub">2026 年 11 月 16 日，共 8 場</p>
+<h1>NBA 星期二對戰表</h1>
+<p class="sub">2026 年 11 月 17 日，共 5 場</p>
 <div class="legend">
 <span><i class="b P">P</i>Probable 很可能出賽</span>
 <span><i class="b Q">Q</i>Questionable 出賽成疑</span>
@@ -59,25 +59,19 @@ h1{font-size:1.7rem;margin:0 0 4px;font-weight:700}
 </main>
 <script>
 var T={
-BOS:["塞爾提克","Baylor Scheierman FA;Luka Garza FA(Mitchell Robinson可能out或減少時間)","prev"],
-ORL:["魔術","Goga Bitadze FA"],
-PHI:["七六人","Joel Embiid O(Maybe injury management)","prev"],
-BKN:["籃網",""],
-CHI:["公牛","Jalen Smith Q;Tobe Awaka O FA;Leonard Miller FA"],
-CLE:["騎士","Evan Mobley O;Jaylon Tyson Q;Peyton Watson Q;Sam Merrill O FA;Craig Porter Jr. FA"],
-PHX:["太陽","Luke Kennard FA","prev"],
-DEN:["金塊",""],
-GSW:["勇士","Georges Niang FA;Gui Santos Q FA"],
-NOR:["鵜鶘","Trey Murphy III O;Dejounte Murray O;Herbert Jones FA;Jordan Poole FA;Bennedict Mathurin O;Trendon Watford O;Bryce McGowens O"],
-HOU:["火箭","Marcus Smart O(禁賽第三場);Reed Sheppard W","prev"],
-MIA:["熱火","Pelle Larsson Q;Ryan Conwell FA"],
-MEM:["灰熊","Ty Jerome O;Zach Edey Q;Isaiah Stewart Q;GG Jackson O FA;Quinten Post Q FA;Jerami Grant W"],
-WAS:["巫師","Bilal Coulibaly FA;Tre Johnson O(前一場Out)","prev"],
-POR:["拓荒者","Sidy Cissoko W","b2b"],
-MIN:["灰狼","Terrence Shannon Jr. FA;Trey Lyles FA;Jaylen Clark O","b2b"]
+CHA:["黃蜂","Christian Anderson FA"],
+LAL:["湖人","Walker Kessler O;Austin Reaves O;Jake LaRavia FA;Ziaire Williams FA;Collin Sexton FA","b2b"],
+DET:["活塞","Duncan Robinson O;Ronald Holland II O FA","b2b"],
+SAS:["馬刺","Luke Kornet FA"],
+UTA:["爵士","Jaxson Hayes O;Josh Green FA;Josh Okogie FA;Brice Sensabaugh FA","b2b"],
+LAC:["快艇","Y. Konan Niederhäuser O;Kobe Sanders FA;Gradey Dick FA"],
+POR:["拓荒者","","prev"],
+MIN:["灰狼","Terrence Shannon Jr. FA;Trey Lyles FA","prev"],
+NYK:["尼克","Landry Shamet FA"],
+TOR:["暴龍","","b2b"]
 };
-var G=[["ORL","BOS"],["PHI","BKN"],["CHI","CLE"],["PHX","DEN"],["GSW","NOR"],["HOU","MIA"],["MEM","WAS"],["POR","MIN"]];
-var NGL="Quenton Jackson(四才有比賽);T.J. McConnell(四才有比賽);Quentin Grimes;Kasparas Jakučionis";
+var G=[["CHA","LAL"],["DET","SAS"],["UTA","LAC"],["POR","MIN"],["NYK","TOR"]];
+var NGL="";
 function badge(c){return '<span class="b '+c+'">'+c+'</span>'}
 function parseStr(str,c){
   var out=[];
